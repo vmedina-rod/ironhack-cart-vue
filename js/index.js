@@ -2,6 +2,7 @@ new Vue({
   el: '#card',
   data() {
     return {
+      total: 0,
       items: [
         {
           name: 'Ironhack Rubber Duck',
@@ -20,9 +21,10 @@ new Vue({
   },
   methods: {
     calculate() {
-      this.items.forEach((item) => {
+      this.total = this.items.reduce((accum, item) => {
         item.total = item.amount * item.price;
-      });
+        return accum + item.total;
+      }, 0);
     }
   }
 });
