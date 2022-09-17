@@ -21,20 +21,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{name}}</td>
-            <td>${{price}}</td>
+          <tr v-for="item in items">
+            <td>{{item.name}}</td>
+            <td>${{item.price}}</td>
             <td>
               <input
                 type="number"
                 value="0"
                 min="0"
                 placeholder="Quantity"
-                v-model="amount"
+                v-model="item.amount"
               />
             </td>
 
-            <td>${{total}}</td>
+            <td>${{item.total}}</td>
 
             <td>
               <button class="btn btn-remove">Remove</button>
