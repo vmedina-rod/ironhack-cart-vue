@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Ironhack Rubber Duck",
+        "amount": 1,
+        "price": 25,
+        "total": 0
+    },
+    {
+        "name": "Ironhack Beach Towel",
+        "amount": 1,
+        "price": 12.5,
+        "total": 0
+    },
+    {
+        "name": "Ironhack Beach Ball",
+        "amount": 1,
+        "price": 15,
+        "total": 0
+    }
+]

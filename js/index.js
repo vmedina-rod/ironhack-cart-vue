@@ -2,21 +2,7 @@ new Vue({
   el: '#card',
   data() {
     return {
-      //total: 0,
-      items: [
-        {
-          name: 'Rubber Duck',
-          amount: 1,
-          price: 25,
-          total: 0
-        },
-        {
-          name: 'Beach Towel',
-          amount: 1,
-          price: 12.5,
-          total: 0
-        }
-      ],
+      items: [],
       newProductName: '',
       newProductPrice: 0
     };
@@ -41,5 +27,15 @@ new Vue({
         return accum + item.total;
       }, 0));
     }
+  },
+  mounted() {
+    fetch('js/datos.json')
+      .then((response) => {
+        if (response.ok) return response.json();
+        else return new Error('Error');
+      })
+      .then((json) => {
+        this.items = json;
+      });
   }
 });
