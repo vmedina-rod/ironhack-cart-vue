@@ -2,7 +2,7 @@ new Vue({
   el: '#card',
   data() {
     return {
-      total: 0,
+      //total: 0,
       items: [
         {
           name: 'Rubber Duck',
@@ -22,12 +22,6 @@ new Vue({
     };
   },
   methods: {
-    calculate() {
-      this.total = this.items.reduce((accum, item) => {
-        item.total = item.amount * item.price;
-        return accum + item.total;
-      }, 0);
-    },
     remove(index) {
       this.items.splice(index, 1);
     },
@@ -38,6 +32,14 @@ new Vue({
         price: this.newProductPrice,
         total: 0
       });
+    }
+  },
+  computed: {
+    total() {
+      return (this.total = this.items.reduce((accum, item) => {
+        item.total = item.amount * item.price;
+        return accum + item.total;
+      }, 0));
     }
   }
 });
