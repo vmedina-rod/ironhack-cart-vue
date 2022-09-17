@@ -5,18 +5,20 @@ new Vue({
       total: 0,
       items: [
         {
-          name: 'Ironhack Rubber Duck',
+          name: 'Rubber Duck',
           amount: 1,
           price: 25,
           total: 0
         },
         {
-          name: 'Ironhack Beach Towel',
+          name: 'Beach Towel',
           amount: 1,
           price: 12.5,
           total: 0
         }
-      ]
+      ],
+      newProductName: '',
+      newProductPrice: 0
     };
   },
   methods: {
@@ -25,6 +27,17 @@ new Vue({
         item.total = item.amount * item.price;
         return accum + item.total;
       }, 0);
+    },
+    remove(index) {
+      this.items.splice(index, 1);
+    },
+    create() {
+      this.items.push({
+        name: this.newProductName,
+        amount: 1,
+        price: this.newProductPrice,
+        total: 0
+      });
     }
   }
 });
